@@ -91,7 +91,7 @@ export default function Home() {
       </Section>
 
       <div className="mx-auto max-w-7xl px-8 mt-10">
-        <Frame title="Live system signals">
+        <Frame title="Live Data">
           <div className="relative w-full overflow-hidden rounded-xl aspect-[16/9]">
             <iframe
               src={process.env.NEXT_PUBLIC_SECTION_1_DASHBOARD}
@@ -112,7 +112,7 @@ export default function Home() {
       </Section>
 
       <div className="mx-auto max-w-7xl px-8 mt-10">
-        <Frame title="Cluster load (live)">
+        <Frame title="Live Data">
           <div className="relative w-full overflow-hidden rounded-xl aspect-[16/9]">
             <iframe
               src={process.env.NEXT_PUBLIC_SECTION_2_DASHBOARD}
@@ -140,7 +140,7 @@ export default function Home() {
       </Section>
 
       <div className="mx-auto max-w-7xl px-8 mt-10 pb-32">
-        <Frame title="Edge activity (live)">
+        <Frame title="Live Data">
           <div className="relative w-full overflow-hidden rounded-xl aspect-[16/9]">
             <iframe
               src={process.env.NEXT_PUBLIC_SECTION_3_DASHBOARD}
@@ -213,7 +213,23 @@ export default function Home() {
         <div className="mx-auto h-px w-240 bg-white/10" />
       </div>
 
-      // tracking
+      <Section title="Total Site Visits">
+        <p>
+          Just for fun, here is a chart of the total visits to this site over time.
+        </p>
+      </Section>
+
+      <div className="mx-auto max-w-7xl px-8 mt-10 pb-32">
+        <Frame title="Live Data">
+          <div className="relative w-full overflow-hidden rounded-xl aspect-[16/9]">
+            <iframe
+              src={process.env.NEXT_PUBLIC_SITE_VISITS_DASHBOARD}
+              className="h-full w-full border-0"
+              loading="lazy"
+            />
+          </div>
+        </Frame>
+      </div>
 
     </main>
   );
