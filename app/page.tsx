@@ -1,7 +1,14 @@
+"use client";
+
+import { useEffect } from "react";
 import Section from "./components/Section";
 import Frame from "./components/Frame";
 
 export default function Home() {
+  useEffect(() => {
+    fetch("/api/track", { method: "POST" });
+  }, []);
+
   return (
     <main>
       <header className="mx-auto max-w-7xl px-8 pt-32 pb-24">
@@ -87,7 +94,7 @@ export default function Home() {
         <Frame title="Live system signals">
           <div className="relative w-full overflow-hidden rounded-xl aspect-[16/9]">
             <iframe
-              src={process.env.SECTION_1_DASHBOARD}
+              src={process.env.NEXT_PUBLIC_SECTION_1_DASHBOARD}
               className="h-full w-full border-0"
               loading="lazy"
             />
@@ -108,7 +115,7 @@ export default function Home() {
         <Frame title="Cluster load (live)">
           <div className="relative w-full overflow-hidden rounded-xl aspect-[16/9]">
             <iframe
-              src={process.env.SECTION_2_DASHBOARD}
+              src={process.env.NEXT_PUBLIC_SECTION_2_DASHBOARD}
               className="h-full w-full border-0"
               loading="lazy"
             />
@@ -136,7 +143,7 @@ export default function Home() {
         <Frame title="Edge activity (live)">
           <div className="relative w-full overflow-hidden rounded-xl aspect-[16/9]">
             <iframe
-              src={process.env.SECTION_3_DASHBOARD}
+              src={process.env.NEXT_PUBLIC_SECTION_3_DASHBOARD}
               className="h-full w-full border-0"
               loading="lazy"
             />
@@ -166,7 +173,7 @@ export default function Home() {
         </p>
       </Section>
 
-      <div className="mx-auto max-w-7xl px-8 mt-10 pb-32">
+      <div className="mx-auto max-w-7xl px-8 mt-10">
         <Frame title="Diagram">
           <div className="relative w-full overflow-hidden rounded-xl aspect-[16/9]">
             <img
@@ -201,6 +208,13 @@ export default function Home() {
           capability has saved my skin a few times.
         </p>
       </Section>
+
+      <div className="mx-auto max-w-7xl px-8">
+        <div className="mx-auto h-px w-240 bg-white/10" />
+      </div>
+
+      // tracking
+
     </main>
   );
 }
