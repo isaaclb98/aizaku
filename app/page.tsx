@@ -44,7 +44,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="bg-[#FAFAF9] text-[#18181B]">
+    <main className="bg-[var(--bg)] text-[var(--text)]">
       <Nav />
 
       {/* ─── HERO ─── */}
@@ -65,7 +65,7 @@ export default function Home() {
             <p
               className="
                 text-xs font-medium tracking-[0.08em] uppercase
-                text-[#C45D35] mb-6
+                text-[var(--accent)] mb-6
               "
               style={{ fontFamily: "var(--font-inter)" }}
             >
@@ -76,7 +76,7 @@ export default function Home() {
               className="
                 text-5xl md:text-6xl lg:text-7xl
                 font-semibold tracking-tight
-                text-[#18181B]
+                text-[var(--text)]
                 leading-[1.05]
                 mb-8
               "
@@ -92,7 +92,7 @@ export default function Home() {
 
             <p
               className="
-                text-lg text-[#71717A]
+                text-lg text-[var(--text-muted)]
                 leading-relaxed mb-10
                 max-w-[520px]
               "
@@ -106,12 +106,12 @@ export default function Home() {
               href="#rhizome"
               className="
                 inline-flex items-center gap-2
-                bg-[#C45D35] text-white
+                bg-[var(--accent)] text-white
                 px-6 py-3 rounded-none
                 text-sm font-medium
                 no-underline
                 transition-colors
-                hover:bg-[#A84E2D]
+                hover:bg-[var(--accent-hover)]
               "
             >
               See what I built
@@ -141,7 +141,7 @@ export default function Home() {
         title="Rhizome"
       >
         <div className="max-w-[600px] reveal-on-scroll">
-          <p className="text-[17px] text-[#71717A] leading-[1.75] mb-8">
+          <p className="text-[17px] text-[var(--text-muted)] leading-[1.75] mb-8">
             An embeddings-based Wikipedia traversal tool. You give it a
             concept, it walks through semantically related articles using
             epsilon-greedy search, and outputs cited markdown. No LLM
@@ -159,12 +159,12 @@ export default function Home() {
               href={RHIZOME_DEMO_URL}
               className="
                 inline-flex items-center gap-2
-                bg-[#C45D35] text-white
+                bg-[var(--accent)] text-white
                 px-5 py-2.5 rounded-none
                 text-sm font-medium
                 no-underline
                 transition-colors
-                hover:bg-[#A84E2D]
+                hover:bg-[var(--accent-hover)]
               "
             >
               Try the demo
@@ -187,13 +187,13 @@ export default function Home() {
               rel="noopener noreferrer"
               className="
                 inline-flex items-center gap-2
-                bg-transparent text-[#18181B]
+                bg-transparent text-[var(--text)]
                 px-5 py-2.5 rounded-none
                 text-sm font-medium
-                border border-[#E4E4E7]
+                border border-[var(--border)]
                 no-underline
                 transition-colors
-                hover:border-[#71717A]
+                hover:border-[var(--text-muted)]
               "
             >
               <svg
@@ -215,7 +215,7 @@ export default function Home() {
       {/* ─── PROJECTS ─── */}
       <Section id="projects" eyebrow="More Work" title="Other Projects">
         <div className="max-w-[600px] reveal-on-scroll">
-          <p className="text-[17px] text-[#71717A] leading-[1.75] mb-10">
+          <p className="text-[17px] text-[var(--text-muted)] leading-[1.75] mb-10">
             Rhizome is the anchor. More projects will slot in here as they
             mature.
           </p>
@@ -260,23 +260,17 @@ export default function Home() {
         title="Where I Deploy Things"
       >
         <div className="max-w-[580px] reveal-on-scroll">
-          <p className="text-[17px] text-[#71717A] leading-[1.75] mb-10">
+          <p className="text-[17px] text-[var(--text-muted)] leading-[1.75] mb-10">
             A four-node Kubernetes cluster, managed declaratively with
             Terraform and ArgoCD. This dashboard is live.
           </p>
         </div>
 
-        <div className="max-w-[800px] reveal-on-scroll rounded overflow-hidden border border-[#E4E4E7] bg-[#FFFFFF]">
-          <div className="bg-[#18181B] px-6 py-4 border-b border-[#27272A] flex items-center gap-3">
-            <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
-            <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
-            <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
-            <span className="text-xs text-[#52525B] ml-2" style={{ fontFamily: "var(--font-jetbrains)" }}>System Health</span>
-          </div>
+        <div className="max-w-[800px] reveal-on-scroll rounded overflow-hidden border border-[var(--border)] bg-[var(--surface)]">
           <iframe
             src={process.env.NEXT_PUBLIC_SECTION_1_DASHBOARD || "about:blank"}
             loading="lazy"
-            className="w-full h-[400px] border-0 bg-[#18181B]"
+            className="w-full h-[500px] border-0"
             title="Cluster System Health"
           />
         </div>
@@ -290,7 +284,7 @@ export default function Home() {
           <p
             className="
               text-xs font-medium tracking-[0.1em] uppercase
-              text-[#C45D35] mb-4
+              text-[var(--accent)] mb-4
             "
             style={{ fontFamily: "var(--font-inter)" }}
           >
@@ -300,7 +294,7 @@ export default function Home() {
           <h2
             className="
               text-3xl md:text-4xl
-              font-medium tracking-tight text-[#18181B]
+              font-medium tracking-tight text-[var(--text)]
               mb-6
             "
             style={{
@@ -315,12 +309,12 @@ export default function Home() {
             href="mailto:isaaclyons98&#64;gmail.com"
             className="
               text-xl md:text-2xl
-              font-medium text-[#18181B]
+              font-medium text-[var(--text)]
               no-underline
-              border-b-2 border-[#C45D35]
+              border-b-2 border-[var(--accent)]
               pb-0.5
               transition-colors
-              hover:text-[#C45D35]
+              hover:text-[var(--accent)]
               inline-block
             "
             style={{
@@ -337,8 +331,8 @@ export default function Home() {
       <footer className="py-10 mt-4">
         <div className="max-w-[1100px] mx-auto px-10">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
-            <p className="text-sm text-[#71717A]">Isaac Lyons</p>
-            <p className="text-sm text-[#71717A]">
+            <p className="text-sm text-[var(--text-muted)]">Isaac Lyons</p>
+            <p className="text-sm text-[var(--text-muted)]">
               Built with Next.js, deployed on my cluster
             </p>
           </div>

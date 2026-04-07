@@ -38,8 +38,8 @@ export default function RootLayout({
           ${jetbrainsMono.variable}
           font-sans
           antialiased
-          bg-[#FAFAF9]
-          text-[#18181B]
+          bg-[var(--bg)]
+          text-[var(--text)]
           min-h-screen
         `}
       >

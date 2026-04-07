@@ -9,8 +9,22 @@ const navLinks = [
   { href: "#contact", label: "Contact" },
 ];
 
+function getInitialTheme(): "light" | "dark" {
+  if (typeof window === "undefined") return "light";
+  const stored = localStorage.getItem("theme") as "light" | "dark" | null;
+  if (stored === "light" || stored === "dark") return stored;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    const initial = getInitialTheme();
+    setTheme(initial);
+    document.documentElement.setAttribute("data-theme", initial);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +33,13 @@ export default function Nav() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  function toggleTheme() {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    localStorage.setItem("theme", next);
+    document.documentElement.setAttribute("data-theme", next);
+  }
 
   return (
     <nav
@@ -29,14 +50,14 @@ export default function Nav() {
         transition-all duration-200
         ${
           scrolled
-            ? "backdrop-blur-md border-b border-[#E4E4E7] bg-[#FAFAF9]/80"
+            ? "backdrop-blur-md border-b border-[var(--border)] bg-[var(--bg)]/80"
             : "bg-transparent"
         }
       `}
     >
       <a
         href="#"
-        className="font-semibold text-[#18181B] no-underline text-base tracking-tight"
+        className="font-semibold text-[var(--text)] no-underline text-base tracking-tight"
         style={{ fontFamily: "var(--font-inter)" }}
       >
         Isaac
@@ -47,7 +68,7 @@ export default function Nav() {
           <li key={link.href}>
             <a
               href={link.href}
-              className="text-sm text-[#71717A] no-underline transition-colors hover:text-[#C45D35]"
+              className="text-sm text-[var(--text-muted)] no-underline transition-colors hover:text-[var(--accent)]"
             >
               {link.label}
             </a>
@@ -58,18 +79,19 @@ export default function Nav() {
       <button
         className="
           hidden md:block
-          text-xs text-[#71717A]
-          border border-[#E4E4E7] rounded
+          text-xs
+          border border-[var(--border)]
+          rounded
           px-3 py-1.5
           cursor-pointer
-          transition-all hover:border-[#71717A] hover:text-[#18181B]
+          transition-all
+          hover:border-[var(--accent)]
           bg-transparent
         "
-        onClick={() => {
-          /* light-only v1 */
-        }}
+        style={{ color: "var(--text-muted)" }}
+        onClick={toggleTheme}
       >
-        Dark mode
+        {theme === "dark" ? "Light mode" : "Dark mode"}
       </button>
     </nav>
   );

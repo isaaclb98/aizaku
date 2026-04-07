@@ -12,15 +12,15 @@ export default function Frame({
   if (variant === "terminal") {
     return (
       <div
-        className={`rounded overflow-hidden border border-[#27272A] ${className}`}
+        className={`rounded overflow-hidden border border-[var(--surface)] ${className}`}
       >
         {/* macOS-style title bar */}
-        <div className="bg-[#18181B] px-4 py-3 flex items-center gap-2 border-b border-[#27272A]">
+        <div className="bg-[#18181B] px-4 py-3 flex items-center gap-2 border-b border-[var(--surface)]">
           <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
           <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
           <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
         </div>
-        <div className="bg-[#18181B] p-8">{children}</div>
+        <div className="bg-[var(--surface)] p-8">{children}</div>
       </div>
     );
   }
@@ -28,8 +28,8 @@ export default function Frame({
   return (
     <div
       className={`
-        bg-[#FFFFFF]
-        border border-[#E4E4E7]
+        bg-[var(--surface)]
+        border border-[var(--border)]
         rounded
         p-6 md:p-8
         ${className}

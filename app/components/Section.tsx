@@ -21,7 +21,7 @@ export default function Section({
       <div className="max-w-[1100px] mx-auto px-10">
         {eyebrow && (
           <p
-            className="text-xs font-medium tracking-[0.1em] uppercase text-[#C45D35] mb-4"
+            className="text-xs font-medium tracking-[0.1em] uppercase text-[var(--accent)] mb-4"
             style={{ fontFamily: "var(--font-inter)" }}
           >
             {eyebrow}
@@ -29,7 +29,7 @@ export default function Section({
         )}
         {title && (
           <h2
-            className="text-3xl md:text-4xl font-medium tracking-tight text-[#18181B] mb-6"
+            className="text-3xl md:text-4xl font-medium tracking-tight text-[var(--text)] mb-6"
             style={{
               fontFamily: "var(--font-inter)",
               letterSpacing: "-0.02em",
