@@ -1,24 +1,45 @@
 type SectionProps = {
-  title: string;
+  id?: string;
+  eyebrow?: string;
+  title?: string;
   children: React.ReactNode;
+  className?: string;
 };
 
 export default function Section({
+  id,
+  eyebrow,
   title,
   children,
+  className = "",
 }: SectionProps) {
   return (
-    <section className="relative pt-32 pb-20">
-      <div className="mx-auto max-w-7xl px-8">
-        <div className="mx-auto max-w-4xl text-center space-y-5">
-          <h2 className="text-5xl md:text-6xl font-semibold tracking-tight">
+    <section
+      id={id}
+      className={`py-32 md:py-40 ${className}`}
+    >
+      <div className="max-w-[1100px] mx-auto px-10">
+        {eyebrow && (
+          <p
+            className="text-xs font-medium tracking-[0.1em] uppercase text-[var(--accent)] mb-4"
+            style={{ fontFamily: "var(--font-inter)" }}
+          >
+            {eyebrow}
+          </p>
+        )}
+        {title && (
+          <h2
+            className="text-3xl md:text-4xl font-medium tracking-tight text-[var(--text)] mb-6"
+            style={{
+              fontFamily: "var(--font-inter)",
+              letterSpacing: "-0.02em",
+              lineHeight: "1.2",
+            }}
+          >
             {title}
           </h2>
-
-          <div className="text-zinc-400 leading-relaxed">
-            {children}
-          </div>
-        </div>
+        )}
+        {children}
       </div>
     </section>
   );
