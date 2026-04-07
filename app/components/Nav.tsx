@@ -80,11 +80,13 @@ export default function Nav() {
         className="
           hidden md:block
           w-8 h-8
+          text-[var(--text-muted)]
           border border-[var(--border)]
           rounded
           cursor-pointer
           transition-all
           hover:border-[var(--accent)]
+          hover:text-[var(--text)]
           bg-transparent
           flex items-center justify-center
         "
