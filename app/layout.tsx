@@ -1,9 +1,28 @@
 import type { Metadata } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Isaac's Site",
-  description: "Isaac's Cool Website.",
+  title: "Isaac — I Build Things That Work",
+  description:
+    "Portfolio of Isaac Lyons, a recent CS grad specializing in cloud infrastructure and AI tooling.",
+  openGraph: {
+    title: "Isaac — I Build Things That Work",
+    description: "Portfolio of Isaac Lyons",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -14,31 +33,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className="
-          relative min-h-screen
-          bg-[#0b0d12]
-          text-white
+        className={`
+          ${inter.variable}
+          ${jetbrainsMono.variable}
+          font-sans
           antialiased
-        "
+          bg-[#FAFAF9]
+          text-[#18181B]
+          min-h-screen
+        `}
       >
-        {/* Linear-style ambient light */}
-        <div
-          aria-hidden
-          className="
-            pointer-events-none fixed inset-0
-            bg-[radial-gradient(140%_120%_at_50%_30%,rgba(120,120,255,0.10),transparent_70%)]
-          "
-        />
-
-        {/* Soft vignette */}
-        <div
-          aria-hidden
-          className="
-            pointer-events-none fixed inset-0
-            shadow-[inset_0_0_400px_rgba(0,0,0,0.55)]
-          "
-        />
-
         {children}
       </body>
     </html>
