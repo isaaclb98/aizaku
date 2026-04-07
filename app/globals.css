@@ -29,6 +29,8 @@
   --space-2xl: 64px;
   --space-3xl: 96px;
   --space-4xl: 128px;
+
+  color-scheme: light;
 }
 
 /* Scroll reveal */
@@ -64,4 +66,12 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
