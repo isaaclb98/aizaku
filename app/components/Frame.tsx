@@ -20,7 +20,7 @@ export default function Frame({
           <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
           <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
         </div>
-        <div className="bg-[var(--surface)] p-8">{children}</div>
+        <div className="bg-[#18181B] p-8">{children}</div>
       </div>
     );
   }
