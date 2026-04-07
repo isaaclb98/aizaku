@@ -148,9 +148,9 @@ export default function Home() {
           </p>
 
           <p className="text-sm text-[var(--text-muted)] mb-8">
-            Indexed ~39,000 Wikipedia articles across 6 domains — Modernism,
+            Indexed ~39,000 Wikipedia articles across 6 domains: Modernism,
             Postmodernism, Continental Philosophy, Frankfurt School, Aesthetics,
-            Literary Theory — producing 832,167 vectors.
+            Literary Theory. Producing 832,167 vectors.
           </p>
 
           <div className="mb-8 reveal-on-scroll">
