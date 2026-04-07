@@ -107,7 +107,7 @@ export default function Home() {
               className="
                 inline-flex items-center gap-2
                 bg-[#C45D35] text-white
-                px-6 py-3 rounded
+                px-6 py-3 rounded-none
                 text-sm font-medium
                 no-underline
                 transition-colors
@@ -160,7 +160,7 @@ export default function Home() {
               className="
                 inline-flex items-center gap-2
                 bg-[#C45D35] text-white
-                px-5 py-2.5 rounded
+                px-5 py-2.5 rounded-none
                 text-sm font-medium
                 no-underline
                 transition-colors
@@ -188,7 +188,7 @@ export default function Home() {
               className="
                 inline-flex items-center gap-2
                 bg-transparent text-[#18181B]
-                px-5 py-2.5 rounded
+                px-5 py-2.5 rounded-none
                 text-sm font-medium
                 border border-[#E4E4E7]
                 no-underline
