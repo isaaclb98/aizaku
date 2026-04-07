@@ -274,7 +274,7 @@ export default function Home() {
             <span className="text-xs text-[#52525B] ml-2" style={{ fontFamily: "var(--font-jetbrains)" }}>System Health</span>
           </div>
           <iframe
-            src={process.env.NEXT_PUBLIC_SECTION_1_DASHBOARD || "#"}
+            src={process.env.NEXT_PUBLIC_SECTION_1_DASHBOARD || "about:blank"}
             loading="lazy"
             className="w-full h-[400px] border-0 bg-[#18181B]"
             title="Cluster System Health"
