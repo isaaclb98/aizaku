@@ -90,6 +90,7 @@ export default function Nav() {
         "
         style={{ color: "var(--text-muted)" }}
         onClick={toggleTheme}
+        aria-label="Toggle dark mode"
       >
         {theme === "dark" ? "Light mode" : "Dark mode"}
       </button>

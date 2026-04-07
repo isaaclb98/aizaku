@@ -5,6 +5,18 @@ type ProjectCardProps = {
   links?: { label: string; href: string }[];
 };
 
+function safeHref(href: string): string {
+  // Reject javascript: and data: schemes — allow http/https and relative links
+  if (
+    href.startsWith("javascript:") ||
+    href.startsWith("data:") ||
+    href.startsWith("vbscript:")
+  ) {
+    return "#";
+  }
+  return href;
+}
+
 export default function ProjectCard({
   eyebrow,
   title,
@@ -45,7 +57,7 @@ export default function ProjectCard({
           {links.map((link) => (
             <a
               key={link.label}
-              href={link.href}
+              href={safeHref(link.href)}
               className="
                 text-[13px]
                 text-[var(--text-muted)]
@@ -54,6 +66,9 @@ export default function ProjectCard({
                 hover:text-[var(--accent)]
                 flex items-center gap-1
               "
+              rel={
+                link.href.startsWith("http") ? "noopener noreferrer" : undefined
+              }
             >
               {link.label} →
             </a>

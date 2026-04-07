@@ -1,4 +1,5 @@
 import { register } from "@/app/lib/metrics";
+import { timingSafeEqual } from "crypto";
 
 const METRICS_USER = process.env.METRICS_BASIC_AUTH_USER;
 const METRICS_PASS = process.env.METRICS_BASIC_AUTH_PASS;
@@ -23,17 +24,22 @@ export async function GET(request: Request) {
   }
 
   let user: string, pass: string;
-  try {
-    const decoded = atob(authHeader.slice(6));
-    const colonIdx = decoded.indexOf(":");
-    if (colonIdx === -1) return unauthorized();
-    user = decoded.slice(0, colonIdx);
-    pass = decoded.slice(colonIdx + 1);
-  } catch {
-    return unauthorized();
-  }
+  const encoded = authHeader.slice(6);
+  // Buffer.from is stricter than atob — rejects invalid base64 characters
+  const decoded = Buffer.from(encoded, "base64").toString("utf-8");
+  const colonIdx = decoded.indexOf(":");
+  if (colonIdx === -1) return unauthorized();
+  user = decoded.slice(0, colonIdx);
+  pass = decoded.slice(colonIdx + 1);
 
-  if (user !== METRICS_USER || pass !== METRICS_PASS) {
+  // Constant-time comparison to prevent timing attacks on credentials
+  const userMatch =
+    user.length === METRICS_USER.length &&
+    timingSafeEqual(Buffer.from(user), Buffer.from(METRICS_USER));
+  const passMatch =
+    pass.length === METRICS_PASS.length &&
+    timingSafeEqual(Buffer.from(pass), Buffer.from(METRICS_PASS));
+  if (!userMatch || !passMatch) {
     return unauthorized();
   }
 

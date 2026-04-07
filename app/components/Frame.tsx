@@ -12,10 +12,10 @@ export default function Frame({
   if (variant === "terminal") {
     return (
       <div
-        className={`rounded overflow-hidden border border-[var(--surface)] ${className}`}
+        className={`rounded overflow-hidden border border-[var(--dark-inset)] ${className}`}
       >
         {/* macOS-style title bar */}
-        <div className="bg-[#18181B] px-4 py-3 flex items-center gap-2 border-b border-[var(--surface)]">
+        <div className="bg-[#18181B] px-4 py-3 flex items-center gap-2 border-b border-[var(--dark-inset)]">
           <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
           <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
           <div className="w-3 h-3 rounded-full bg-[#27C93F]" />

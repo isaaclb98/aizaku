@@ -10,7 +10,7 @@ import ProjectCard from "./components/ProjectCard";
 
 
 const RHIZOME_DEMO_URL =
-  process.env.NEXT_PUBLIC_RHIZOME_DEMO_URL || "#";
+  process.env.NEXT_PUBLIC_RHIZOME_DEMO_URL || "";
 const RHIZOME_REPO_URL =
   process.env.NEXT_PUBLIC_RHIZOME_REPO_URL || "#";
 
@@ -155,32 +155,34 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap gap-4 reveal-on-scroll">
-            <a
-              href={RHIZOME_DEMO_URL}
-              className="
-                inline-flex items-center gap-2
-                bg-[var(--accent)] text-white
-                px-5 py-2.5 rounded-none
-                text-sm font-medium
-                no-underline
-                transition-colors
-                hover:bg-[var(--accent-hover)]
-              "
-            >
-              Try the demo
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 16 16"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+            {RHIZOME_DEMO_URL && (
+              <a
+                href={RHIZOME_DEMO_URL}
+                className="
+                  inline-flex items-center gap-2
+                  bg-[var(--accent)] text-white
+                  px-5 py-2.5 rounded-none
+                  text-sm font-medium
+                  no-underline
+                  transition-colors
+                  hover:bg-[var(--accent-hover)]
+                "
               >
-                <path d="M3 8h10M9 4l4 4-4 4" />
-              </svg>
-            </a>
+                Try the demo
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M3 8h10M9 4l4 4-4 4" />
+                </svg>
+              </a>
+            )}
             <a
               href={RHIZOME_REPO_URL}
               target="_blank"

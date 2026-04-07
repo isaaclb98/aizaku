@@ -13,6 +13,10 @@ export async function POST(request: Request) {
     return new Response("Too Many Requests", { status: 429 });
   }
 
-  siteVisits.inc();
+  try {
+    siteVisits.inc();
+  } catch {
+    // Non-critical — don't fail the request if metrics fail
+  }
   return new Response(null, { status: 204 });
 }
