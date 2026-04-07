@@ -62,16 +62,6 @@ export default function Home() {
           "
         >
           <div className="max-w-[640px] reveal-on-scroll">
-            <p
-              className="
-                text-xs font-medium tracking-[0.08em] uppercase
-                text-[var(--accent)] mb-6
-              "
-              style={{ fontFamily: "var(--font-inter)" }}
-            >
-              Software Engineer
-            </p>
-
             <h1
               className="
                 text-5xl md:text-6xl lg:text-7xl
@@ -85,10 +75,14 @@ export default function Home() {
                 letterSpacing: "-0.03em",
               }}
             >
-              I build things
-              <br />
-              that work.
+              <span style={{ whiteSpace: "nowrap" }}>Isaac Lyons-Barney</span>
             </h1>
+
+            <img
+              src="/image0.jpeg"
+              alt="Isaac Lyons-Barney"
+              className="w-20 h-20 rounded-full object-cover mb-8"
+            />
 
             <p
               className="
@@ -97,9 +91,10 @@ export default function Home() {
                 max-w-[520px]
               "
             >
-              Recent CS grad from Canada. I care about infrastructure that
-              holds up, tools that actually solve problems, and code that
-              does not need excuses.
+              CS grad from Canada. I work with Kubernetes and Terraform for
+              infrastructure, and with AI agents, embeddings, and LLM APIs.
+              Looking for work where I can contribute meaningfully and
+              continue to learn.
             </p>
 
             <a
@@ -142,10 +137,20 @@ export default function Home() {
       >
         <div className="max-w-[600px] reveal-on-scroll">
           <p className="text-[17px] text-[var(--text-muted)] leading-[1.75] mb-8">
-            An embeddings-based Wikipedia traversal tool. You give it a
-            concept, it walks through semantically related articles using
-            epsilon-greedy search, and outputs cited markdown. No LLM
-            required.
+            A semantic Wikipedia traversal tool built on vector embeddings. You
+            give it a starting concept, and it walks through semantically
+            related Wikipedia passages using epsilon-greedy exploration:
+            configurable exploration parameters (like temperature) let you
+            tune how focused or tangential the walk is. Uses Qdrant for vector storage.
+            Users can create their own embeddings for custom Wikipedia
+            domains. The output is a chain of cited Wikipedia passages, each
+            one leading into the next.
+          </p>
+
+          <p className="text-sm text-[var(--text-muted)] mb-8">
+            Indexed ~39,000 Wikipedia articles across 6 domains — Modernism,
+            Postmodernism, Continental Philosophy, Frankfurt School, Aesthetics,
+            Literary Theory — producing 832,167 vectors.
           </p>
 
           <div className="mb-8 reveal-on-scroll">
@@ -214,6 +219,21 @@ export default function Home() {
 
       <Divider />
 
+      {/* ─── EXPERIENCE ─── */}
+      <Section id="experience" eyebrow="Experience" title="Systems Officer II at Ontario Public Service, Jan–Aug 2024">
+        <div className="max-w-[600px] reveal-on-scroll">
+          <p className="text-[17px] text-[var(--text-muted)] leading-[1.75]">
+            Built enterprise back-end services for government web applications —
+            Java/Spring for AgriSuite and FRI, C#/ASP.NET features alongside.
+            Implemented end-to-end test automation with Playwright and Azure,
+            running environment-specific executions with centralized reporting
+            and saving 40+ hours per year. Agile team with shared CI/CD workflows.
+          </p>
+        </div>
+      </Section>
+
+      <Divider />
+
       {/* ─── PROJECTS ─── */}
       <Section id="projects" eyebrow="More Work" title="Other Projects">
         <div className="max-w-[600px] reveal-on-scroll">
@@ -233,16 +253,27 @@ export default function Home() {
           <ProjectCard
             eyebrow="AI / Embeddings"
             title="Rhizome"
-            description="Semantic Wikipedia traversal using vector search and epsilon-greedy exploration. Outputs markdown with citations. No LLM."
+            description="Wikipedia traversal using epsilon-greedy search over vector embeddings. Temperature and epsilon are configurable to control how explorative or focused the walk is. Users can build their own corpora for different Wikipedia domains. The output is a chain of cited Wikipedia passages, each one leading into the next."
             links={[
               { label: "Live demo", href: RHIZOME_DEMO_URL },
               { label: "GitHub", href: RHIZOME_REPO_URL },
             ]}
           />
           <ProjectCard
+            eyebrow="Game Development"
+            title="Dungeon Crawler"
+            description="3D dungeon crawler video game built by a team of 6 for a university project. Led the team as project manager, overseeing architecture and deliverables."
+            links={[
+              {
+                label: "GitHub",
+                href: "https://github.com/isaaclb98/dungeon-crawler",
+              },
+            ]}
+          />
+          <ProjectCard
             eyebrow="Infrastructure"
             title="Home Cluster"
-            description="Four-node Kubernetes cluster, managed declaratively with Terraform and ArgoCD. Prometheus + Grafana monitoring. The infrastructure that runs this site."
+            description="Four-node Kubernetes cluster on bare metal, managed declaratively with Terraform and ArgoCD. Infrastructure declared in code. If the hardware were destroyed tomorrow, the cluster would still exist, ready to rebuild. Self-hosts a music server, photo gallery, movie library, git forge, and more. Prometheus + Grafana monitoring."
             links={[
               {
                 label: "View dashboards",
@@ -263,8 +294,11 @@ export default function Home() {
       >
         <div className="max-w-[580px] reveal-on-scroll">
           <p className="text-[17px] text-[var(--text-muted)] leading-[1.75] mb-10">
-            A four-node Kubernetes cluster, managed declaratively with
-            Terraform and ArgoCD. This dashboard is live.
+            Self-hosted on bare metal. Four-node Kubernetes cluster managed
+            with Terraform and ArgoCD, the full architecture declared in
+            code. If the hardware were destroyed, the cluster would still
+            exist, ready to rebuild. Runs git hosting, media streaming,
+            compute workloads, and more. This dashboard is live.
           </p>
         </div>
 
@@ -290,7 +324,7 @@ export default function Home() {
             "
             style={{ fontFamily: "var(--font-inter)" }}
           >
-            Get in Touch
+            Contact
           </p>
 
           <h2
@@ -304,28 +338,60 @@ export default function Home() {
               letterSpacing: "-0.02em",
             }}
           >
-            Start a conversation.
+            Contact me
           </h2>
 
-          <a
-            href="mailto:isaaclyons98&#64;gmail.com"
-            className="
-              text-xl md:text-2xl
-              font-medium text-[var(--text)]
-              no-underline
-              border-b-2 border-[var(--accent)]
-              pb-0.5
-              transition-colors
-              hover:text-[var(--accent)]
-              inline-block
-            "
-            style={{
-              fontFamily: "var(--font-inter)",
-              letterSpacing: "-0.02em",
-            }}
-          >
-            isaaclyons98&#64;gmail.com
-          </a>
+          <div className="flex flex-col gap-3">
+            <a
+              href="mailto:isaaclyons98&#64;gmail.com"
+              className="
+                text-lg text-[var(--text)]
+                no-underline
+                border-b border-[var(--border)]
+                pb-1
+                transition-colors
+                hover:text-[var(--accent)]
+                hover:border-[var(--accent)]
+                inline-block w-fit
+              "
+            >
+              isaaclyons98&#64;gmail.com
+            </a>
+            <a
+              href="https://github.com/isaaclb98"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                text-lg text-[var(--text-muted)]
+                no-underline
+                border-b border-[var(--border)]
+                pb-1
+                transition-colors
+                hover:text-[var(--text)]
+                hover:border-[var(--border)]
+                inline-block w-fit
+              "
+            >
+              github.com/isaaclb98
+            </a>
+            <a
+              href="https://www.linkedin.com/in/isaac-lyons-barney/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                text-lg text-[var(--text-muted)]
+                no-underline
+                border-b border-[var(--border)]
+                pb-1
+                transition-colors
+                hover:text-[var(--text)]
+                hover:border-[var(--border)]
+                inline-block w-fit
+              "
+            >
+              linkedin.com/in/isaac-lyons-barney
+            </a>
+          </div>
         </div>
       </Section>
 
@@ -333,7 +399,7 @@ export default function Home() {
       <footer className="py-10 mt-4">
         <div className="max-w-[1100px] mx-auto px-10">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
-            <p className="text-sm text-[var(--text-muted)]">Isaac Lyons</p>
+            <p className="text-sm text-[var(--text-muted)]">Isaac Lyons-Barney</p>
             <p className="text-sm text-[var(--text-muted)]">
               Built with Next.js, deployed on my cluster
             </p>

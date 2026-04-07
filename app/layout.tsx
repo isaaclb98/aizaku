@@ -15,12 +15,12 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Isaac — I Build Things That Work",
+  title: "Aizaku",
   description:
-    "Portfolio of Isaac Lyons, a recent CS grad specializing in cloud infrastructure and AI tooling.",
+    "Portfolio of Isaac Lyons-Barney, a recent CS grad specializing in cloud infrastructure and AI tooling.",
   openGraph: {
-    title: "Isaac — I Build Things That Work",
-    description: "Portfolio of Isaac Lyons",
+    title: "Aizaku",
+    description: "Portfolio of Isaac Lyons-Barney",
     type: "website",
   },
 };
