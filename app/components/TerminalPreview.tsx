@@ -5,8 +5,8 @@ export default function TerminalPreview() {
       style={{ fontFamily: "var(--font-jetbrains)" }}
     >
       <div className="text-[var(--text-muted)] text-xs mb-2">QUERY</div>
-      <div className="text-[var(--text)] mb-6">
-        &quot;the tension between modernism and postmodernism&quot;
+      <div className="text-[#FAFAF9] mb-6">
+        &quot;The tension between Modernism and Postmodernism&quot;
       </div>
 
       <div className="text-[var(--text-muted)] text-xs mb-2">RESULTS — 6 hops</div>

@@ -60,7 +60,7 @@ export default function Nav() {
         className="font-semibold text-[var(--text)] no-underline text-base tracking-tight"
         style={{ fontFamily: "var(--font-inter)" }}
       >
-        Isaac
+        Aizaku
       </a>
 
       <ul className="hidden md:flex items-center gap-8 list-none m-0 p-0">
