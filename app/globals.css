@@ -16,6 +16,7 @@
   --accent: #C45D35;
   --accent-hover: #A84E2D;
   --dark-inset: #18181B;
+  --terminal-border: #3F3F46;
 
   /* Typography */
   --font-display: 'Inter', sans-serif;
@@ -42,6 +43,7 @@
     --text: #FAFAF9;
     --text-muted: #A1A1AA;
     --border: #3F3F46;
+    --terminal-border: #52525B;
     color-scheme: dark;
   }
 }
@@ -52,6 +54,7 @@
   --text: #FAFAF9;
   --text-muted: #A1A1AA;
   --border: #3F3F46;
+  --terminal-border: #52525B;
   color-scheme: dark;
 }
 
